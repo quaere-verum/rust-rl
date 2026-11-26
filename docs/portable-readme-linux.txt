@@ -9,7 +9,7 @@ the executable. The bundled recordings are available offline.
 Use an x86-64 system with glibc 2.43 or newer, libgcc_s.so.1, a Wayland or
 X11 desktop, libxkbcommon, and graphics drivers providing a compatible
 Vulkan or OpenGL/EGL adapter. Verified on Ubuntu 26.04 LTS under WSL2
-with WSLg.
+with WSLg. X11 also requires libxkbcommon-x11.so.0.
 
 Validate the recordings from a terminal with this command.
 

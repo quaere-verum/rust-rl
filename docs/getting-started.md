@@ -22,7 +22,7 @@ cd rust-rl-v0.1.0-linux-x86_64
 ./rl-viewer
 ```
 
-The binary requires an x86-64 system with glibc 2.43 or newer and `libgcc_s.so.1`. Use a Wayland or X11 desktop with libxkbcommon and graphics drivers that provide a compatible Vulkan or OpenGL/EGL adapter. The archive was verified on Ubuntu 26.04 LTS under WSL2 with WSLg.
+The binary requires an x86-64 system with glibc 2.43 or newer and `libgcc_s.so.1`. Use a Wayland or X11 desktop with libxkbcommon and graphics drivers that provide a compatible Vulkan or OpenGL/EGL adapter. X11 also requires `libxkbcommon-x11.so.0`. The archive was verified on Ubuntu 26.04 LTS under WSL2 with WSLg.
 
 Select **Open demonstration** and switch recordings from **Run**. For headless validation, run `./rl-viewer --check ./demonstrations`.
 
