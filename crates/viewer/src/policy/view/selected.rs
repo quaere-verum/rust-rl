@@ -909,7 +909,7 @@ impl PolicyPane {
             ui.horizontal(|ui|{ui.label("KL divergence").on_hover_text("Full distribution D_KL(current || reference), at the same complete input. Categorical sum over all actions; full diagonal Gaussian KL under identical invertible action transforms.");ui.strong(if kl.is_infinite(){"∞".into()}else{format!("{kl:.6}")});});
         }
         if let Some(frame) = frame {
-            if frame.grid.current.revision != frame.requested_revision {
+            if self.terminal || frame.grid.current.revision != frame.requested_revision {
                 ui.colored_label(
                     crate::theme::WARNING,
                     format!("Showing checkpoint {}", frame.grid.current.revision),
