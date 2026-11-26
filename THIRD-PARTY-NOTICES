@@ -1,0 +1,17 @@
+rust-rl third-party components
+
+Cargo.lock identifies the dependency versions used by this workspace.
+Dependencies are retrieved from their published package registry and are
+distributed under their respective terms.
+
+The portable viewer distributions include the applicable original notices for
+linked dependencies, embedded fonts, generated graphics bindings and toolchain
+runtime code. The archives also include the corresponding source for the
+MPL-2.0 component colored 3.1.1.
+
+The viewer uses the default fonts supplied by egui, including Hack Regular,
+Ubuntu Light and the egui icon subset. Their notices accompany the portable
+viewer. The screenshots in this repository are native captures of the viewer.
+
+The rocket and trade execution recordings are generated from the included
+simulators. They contain no empirical market feed or external scenario data.

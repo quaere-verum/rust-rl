@@ -1,0 +1,31 @@
+[workspace]
+members = ["crates/rl", "crates/viewer"]
+default-members = ["crates/rl"]
+resolver = "3"
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.95"
+version = "0.1.0"
+publish = false
+
+[workspace.dependencies]
+burn = { version = "=0.22.0", default-features = false, features = ["std", "optim", "flex"] }
+serde = { version = "1", features = ["derive", "rc"] }
+serde_json = { version = "1", features = ["float_roundtrip"] }
+thiserror = "2"
+rand = "0.9"
+rand_chacha = { version = "0.9", features = ["serde"] }
+rand_distr = "0.5"
+nalgebra = { version = "0.34", features = ["serde-serialize"] }
+libm = "0.2"
+
+[profile.dev]
+# Full Windows debug symbols are very large across the test executables.
+debug = 0
+
+[profile.test]
+debug = 0
+
+[profile.release]
+debug = 1

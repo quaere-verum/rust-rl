@@ -1,0 +1,46 @@
+name: Rust CPU
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: 1.95.0
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo fmt --all -- --check
+      - name: Verify lightweight and portable recording dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          for features in "" diagnostics; do
+            tree="$(cargo tree --locked -p rust-rl --no-default-features --features "$features" -e normal)"
+            if grep -Eq '(^|[^[:alnum:]_-])burn(-[[:alnum:]_-]+)? v' <<< "$tree"; then
+              printf '%s\n' "$tree"
+              exit 1
+            fi
+          done
+      - run: cargo test --locked -p rust-rl --no-default-features
+      - run: cargo test --locked -p rust-rl --no-default-features --features diagnostics --test diagnostic_recording --test diagnostic_frames --test diagnostics_decision_loss
+      - run: cargo test --manifest-path examples/external_consumer/Cargo.toml
+      - run: cargo test --manifest-path examples/external_consumer/Cargo.toml --features neural
+      - run: cargo clippy --locked -p rust-rl --no-default-features --all-targets -- -D warnings
+      - run: cargo clippy --locked --workspace --all-targets --all-features -- -D warnings
+      - run: cargo test --locked --workspace --all-features
+      - run: cargo check --locked -p rl-viewer --no-default-features --all-targets
+      - run: cargo doc --locked --workspace --no-deps --all-features
+        env:
+          RUSTDOCFLAGS: -D warnings
+      - run: cargo run --locked -p rust-rl --no-default-features --example tabular_q_learning
+      - run: cargo test --locked -p rust-rl --no-default-features --example model_planning
+      - run: cargo run --locked -p rust-rl --no-default-features --example model_planning
+      - run: cargo run --locked -p rust-rl --example structured_control
+      - run: cargo run --locked -p rust-rl --features diagnostics --example diagnostic_generic -- runs/ci-diagnostics
+      - run: cargo run --locked -p rl-viewer -- --check runs/ci-diagnostics

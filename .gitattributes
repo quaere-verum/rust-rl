@@ -1,0 +1,8 @@
+# Preserve checksummed fixture bytes across platforms.
+crates/rl/tests/fixtures/recurrent-ddqn-master/**/*.json -text linguist-generated=true
+crates/rl/tests/fixtures/recurrent-ddqn-master/**/COMPLETE -text
+crates/rl/tests/fixtures/recurrent-mpo-pr32/**/*.json -text linguist-generated=true
+crates/rl/tests/fixtures/recurrent-mpo-pr32/**/COMPLETE -text
+crates/rl/tests/fixtures/recurrent-ddqn-pr12.json -text linguist-generated=true
+crates/rl/tests/fixtures/structured-ddqn-phase-c/learner.json -text linguist-generated=true
+crates/rl/tests/fixtures/recurrent-ppo-pr15/** -text linguist-generated=true

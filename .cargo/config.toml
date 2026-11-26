@@ -1,0 +1,3 @@
+# Full workspace verification does not require an incremental cache.
+[build]
+incremental = false

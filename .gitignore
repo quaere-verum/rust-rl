@@ -1,0 +1,15 @@
+/target/
+/.cache/
+/.tmp/
+/.superpowers/
+/runs/
+/research/
+/artifacts/
+/results/
+/checkpoints/
+/models/
+/traces/
+**/target/
+**/runs/
+**/__pycache__/
+**/matplotlib-cache/

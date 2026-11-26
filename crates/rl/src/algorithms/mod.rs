@@ -1,0 +1,72 @@
+mod batch_q;
+#[cfg(feature = "neural")]
+pub mod candidate_ddqn;
+#[cfg(feature = "neural")]
+pub mod candidate_mpo;
+#[cfg(feature = "neural")]
+pub mod categorical_dpg;
+#[cfg(feature = "neural")]
+pub(crate) mod common;
+#[cfg(feature = "neural")]
+pub mod continuous;
+#[cfg(feature = "neural")]
+pub mod d4pg;
+#[cfg(feature = "neural")]
+pub mod ddpg;
+#[cfg(feature = "neural")]
+pub mod ddqn;
+#[cfg(feature = "experimental-acer")]
+pub mod experimental;
+pub mod fqi;
+pub mod lspi;
+#[cfg(feature = "neural")]
+pub mod md4pg;
+#[cfg(feature = "neural")]
+pub mod ppo;
+#[cfg(feature = "neural")]
+mod ppo_joint;
+#[cfg(feature = "neural")]
+pub mod recurrent_candidates;
+#[cfg(feature = "neural")]
+pub mod recurrent_critic;
+#[cfg(feature = "neural")]
+pub mod recurrent_ddqn;
+#[cfg(feature = "neural")]
+pub mod recurrent_mdpo;
+#[cfg(feature = "neural")]
+pub mod recurrent_mpo;
+#[cfg(feature = "neural")]
+pub(crate) mod recurrent_on_policy;
+#[cfg(feature = "neural")]
+pub mod recurrent_ppo;
+#[cfg(feature = "neural")]
+pub mod recurrent_reinforce;
+#[cfg(feature = "neural")]
+pub mod recurrent_reppo;
+#[cfg(feature = "neural")]
+pub mod recurrent_vmpo;
+#[cfg(feature = "neural")]
+pub mod reinforce;
+#[cfg(feature = "neural")]
+pub mod reppo;
+#[cfg(feature = "neural")]
+pub mod sac;
+#[cfg(feature = "neural")]
+pub mod search_guided;
+pub mod tabular;
+#[cfg(feature = "neural")]
+pub mod td3;
+#[cfg(feature = "neural")]
+pub mod vmpo;
+#[cfg(feature = "neural")]
+pub use common::OptimizerConfig;
+#[cfg(feature = "neural")]
+pub use recurrent_on_policy::{
+    LightweightTemporalActor, RecurrentOnPolicyPolicy, StructuredTemporalActor,
+    StructuredTemporalActorState,
+    distribution::RecurrentPolicyDistribution,
+    minibatch::{Minibatch as RecurrentOnPolicyMinibatch, WindowBatch as RecurrentOnPolicyWindows},
+    structured::ConditionalBatch as ConditionalPolicyDistribution,
+};
+#[cfg(feature = "neural")]
+pub mod mdpo;
