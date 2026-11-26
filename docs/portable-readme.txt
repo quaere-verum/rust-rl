@@ -16,7 +16,7 @@ From PowerShell in this directory, validate the recordings with
     .\rl-viewer.exe --check ".\demonstrations"
 
 The .sha256 files contain the SHA-256 of every bundled recording file.
-Open THIRD-PARTY-NOTICES for dependency notices.
+See LICENSE for the project's terms and THIRD-PARTY-NOTICES for dependencies.
 
 Source, user guide and release notes are available from the release repository
-at https://github.com/quaere-verum/rust-rl-release.
+at https://github.com/quaere-verum/rust-rl.

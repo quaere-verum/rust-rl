@@ -8,7 +8,7 @@ rust-rl pairs a modular reinforcement learning library with a native application
 
 ## Download and open a demonstration
 
-1. Download the Windows x86-64 ZIP from [GitHub Releases](https://github.com/quaere-verum/rust-rl-release/releases).
+1. Download the Windows x86-64 ZIP from [GitHub Releases](https://github.com/quaere-verum/rust-rl/releases).
 2. Extract the whole ZIP and launch `rl-viewer.exe`.
 3. Select **Open demonstration**, then choose **Rocket Landing · PPO** or **Alpha Execution · Expected Return** from **Run**.
 
@@ -27,7 +27,11 @@ The viewer has six workspaces for Training, Policy, Value, Network, Dynamics and
 
 **Rocket Landing · PPO** follows a controller from 1 successful landing out of 200 held-out episodes at the initial checkpoint to 200 out of 200 at the final checkpoint. Inspect the policy and its geometry, then play a recorded flight beside the feedback benchmark.
 
+![Rocket landing episode with flight telemetry](docs/images/environment.png)
+
 **Alpha Execution** compares expected-return and CVaR-sensitive D4PG in a stylized execution simulator. Inspect the inventory policy against a numerical dynamic-programming benchmark and compare its predicted return distribution with matched simulated futures. At the documented condition, those futures have a substantially wider spread. [Demonstration walkthroughs and reproduction](docs/demonstrations.md)
+
+![Predicted and empirical conditional returns for the alpha execution demonstration](docs/images/value.png)
 
 ## Use the Rust library
 
@@ -63,4 +67,4 @@ cargo run --locked --release -p rl-viewer -- runs/my-experiment
 
 ## Licence
 
-This release candidate is staged for project licence approval. [Third-party notices](THIRD-PARTY-NOTICES)
+rust-rl is licensed under the MIT License. [Project license](LICENSE) · [Third-party notices](THIRD-PARTY-NOTICES)

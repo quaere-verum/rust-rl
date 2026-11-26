@@ -9,6 +9,10 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $source = Split-Path -Parent $PSScriptRoot
+$licence = Join-Path $source 'LICENSE'
+if (-not (Test-Path -LiteralPath $licence -PathType Leaf)) {
+    throw 'The project LICENSE is required to package a release'
+}
 $viewerFile = Get-Item -LiteralPath $Viewer
 $demonstrationRoot = (Resolve-Path -LiteralPath $Demonstrations).Path
 $noticeRoot = (Resolve-Path -LiteralPath $Notices).Path
@@ -67,15 +71,7 @@ if ($LASTEXITCODE -ne 0 -or @($validation -match 'complete=true').Count -ne 3) {
 $validation | Write-Host
 
 Copy-Item -LiteralPath (Join-Path $source 'docs/portable-readme.txt') -Destination (Join-Path $staged 'README.txt')
-$licence = Join-Path $source 'LICENSE'
-if (Test-Path -LiteralPath $licence -PathType Leaf) {
-    Copy-Item -LiteralPath $licence -Destination $staged
-} else {
-    Set-Content -LiteralPath (Join-Path $staged 'PROJECT-LICENCE-PENDING.txt') -Value @'
-Private release candidate for owner review. The project licence is pending
-approval. Third-party terms are provided in THIRD-PARTY-NOTICES.
-'@
-}
+Copy-Item -LiteralPath $licence -Destination $staged
 foreach ($entry in Get-ChildItem -LiteralPath $noticeRoot -Force) {
     if (Test-Path -LiteralPath (Join-Path $staged $entry.Name)) {
         throw "Unexpected collision in the notices directory"

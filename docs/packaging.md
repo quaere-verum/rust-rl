@@ -29,4 +29,4 @@ Place the reviewed binary distribution notices in a separate directory containin
 ./scripts/package-windows.ps1 -Viewer target/release/rl-viewer.exe -Demonstrations path/to/demonstrations -Notices path/to/notices -OutputDirectory artifacts
 ```
 
-The script checks the per-recording inventories and runs headless validation before creating the ZIP and its SHA-256 file. Extract the ZIP into a fresh path outside the source tree and launch the included executable. Check that **Open demonstration** can find the three recordings before distributing the archive. [Installation guide](getting-started.md)
+The script requires the project `LICENSE`, checks the per-recording inventories, and runs headless validation before creating the ZIP and its SHA-256 file. Extract the ZIP into a fresh path outside the source tree and launch the included executable. Check that **Open demonstration** can find the three recordings before distributing the archive. [Installation guide](getting-started.md)

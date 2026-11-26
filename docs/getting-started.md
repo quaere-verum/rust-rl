@@ -2,7 +2,7 @@
 
 ## Windows viewer
 
-Download `rust-rl-v0.1.0-windows-x86_64.zip` and extract the entire folder. Launch `rl-viewer.exe`, select **Open demonstration**, and use **Run** to switch between the bundled recordings. Keep `demonstrations` beside the executable when you move it. A directory name may contain spaces. The viewer can inspect these recordings offline, using the files in the archive. [GitHub Releases](https://github.com/quaere-verum/rust-rl-release/releases)
+Download `rust-rl-v0.1.0-windows-x86_64.zip` and extract the entire folder. Launch `rl-viewer.exe`, select **Open demonstration**, and use **Run** to switch between the bundled recordings. Keep `demonstrations` beside the executable when you move it. A directory name may contain spaces. The viewer can inspect these recordings offline, using the files in the archive. [GitHub Releases](https://github.com/quaere-verum/rust-rl/releases)
 
 Use **Open recording** to browse to a different recording directory or a parent folder containing several runs. You can also validate the bundled recordings from PowerShell.
 
@@ -11,6 +11,20 @@ Use **Open recording** to browse to a different recording directory or a parent 
 ```
 
 A completed bundle reports `complete=true` for each of its three recordings. [Viewer manual](viewer.md)
+
+## Linux viewer
+
+Download `rust-rl-v0.1.0-linux-x86_64.tar.gz` from the same release.
+
+```sh
+tar -xzf rust-rl-v0.1.0-linux-x86_64.tar.gz
+cd rust-rl-v0.1.0-linux-x86_64
+./rl-viewer
+```
+
+The binary requires an x86-64 system with glibc 2.43 or newer and `libgcc_s.so.1`. Use a Wayland or X11 desktop with libxkbcommon and graphics drivers that provide a compatible Vulkan or OpenGL/EGL adapter. The archive was verified on Ubuntu 26.04 LTS under WSL2 with WSLg.
+
+Select **Open demonstration** and switch recordings from **Run**. For headless validation, run `./rl-viewer --check ./demonstrations`.
 
 ## Build from source
 
@@ -37,11 +51,11 @@ Keep a source checkout next to your project and point Cargo at `crates/rl`.
 rl = { package = "rust-rl", path = "../rust-rl/crates/rl" }
 ```
 
-A Git dependency uses the same package and import names. Once the public repository and release tag are live, replace the URL and tag below with the published ones.
+The release tag can also be used as a Git dependency with the same package and import names.
 
 ```toml
 [dependencies]
-rl = { package = "rust-rl", git = "https://github.com/OWNER/REPOSITORY.git", tag = "v0.1.0" }
+rl = { package = "rust-rl", git = "https://github.com/quaere-verum/rust-rl.git", tag = "v0.1.0" }
 ```
 
 | Feature | What it enables |
