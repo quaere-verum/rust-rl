@@ -11,7 +11,7 @@ X11 desktop, libxkbcommon, and graphics drivers providing a compatible
 Vulkan or OpenGL/EGL adapter. Verified on Ubuntu 26.04 LTS under WSL2
 with WSLg.
 
-To validate the recordings from a terminal:
+Validate the recordings from a terminal with this command.
 
     ./rl-viewer --check ./demonstrations
 
@@ -19,5 +19,5 @@ The .sha256 files contain the SHA-256 of every bundled recording file.
 See LICENSE for the project's terms and THIRD-PARTY-NOTICES.txt for
 dependency notices.
 
-Source, user guide and release notes:
+Source, user guide and release notes are available at
 https://github.com/quaere-verum/rust-rl
