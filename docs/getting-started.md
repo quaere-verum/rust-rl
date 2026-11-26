@@ -26,6 +26,8 @@ cargo run --locked --release -p rl-viewer -- --check path/to/recording
 
 Replace `path/to/recording` with an actual recording directory. Quote the path if it contains spaces. Platform-specific package availability and verification are listed in the version's release notes.
 
+Add `--no-default-features` to the viewer build or run command to use the Glow backend shipped in the Windows archive. For a run command, put it before the `--` that separates application arguments.
+
 ## Use the library from your project
 
 Keep a source checkout next to your project and point Cargo at `crates/rl`.

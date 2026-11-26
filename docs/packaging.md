@@ -16,8 +16,10 @@ $env:CARGO_ENCODED_RUSTFLAGS = (@(
 ) -join [char]31)
 $env:CARGO_PROFILE_RELEASE_DEBUG = '0'
 $env:CARGO_PROFILE_RELEASE_STRIP = 'symbols'
-cargo build --locked --release -p rl-viewer
+cargo build --locked --release -p rl-viewer --no-default-features
 ```
+
+The portable Windows package uses the viewer's Glow backend. The regular Cargo build supports WGPU through the viewer's default feature.
 
 Prepare a directory with complete recordings named `rocket-landing`, `alpha-execution` and `alpha-execution-cvar`. Place a matching `<name>.sha256` inventory beside each directory. The release download contains the inventories for its bundled data. To package independently reproduced data, use the demonstration guide and write fresh inventories. [Reproduction commands](demonstrations.md)
 
